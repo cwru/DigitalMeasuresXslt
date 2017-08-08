@@ -6,7 +6,7 @@
     xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
 <xsl:output method="xml" indent="yes" omit-xml-declaration="no" />
 
-  <xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt" />
+  <xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt" />
 
 	<!-- Main Template -->
   <xsl:template match="Data">

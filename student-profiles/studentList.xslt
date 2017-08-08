@@ -7,7 +7,7 @@
     exclude-result-prefixes="xs fn dmd"
     xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
   <xsl:output encoding="UTF-8" method="xhtml"/>
-  <xsl:include href="D:/web/weatherhead/data/DigitalMeasures/xslt/DigitalMeasuresHelper.xslt"/>
+  <xsl:include href="D:/web/common/xslt/DigitalMeasures/DigitalMeasuresHelper.xslt"/>
   <!-- Input Parameters -->
   <xsl:param name="sortBy" select="p"/>
   <!-- Main Template -->

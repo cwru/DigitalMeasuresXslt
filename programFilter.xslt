@@ -5,7 +5,7 @@
 	xmlns:dmd="http://www.digitalmeasures.com/schema/data-metadata"
     exclude-result-prefixes="fn">
 	<xsl:output method="xml" encoding="UTF-8" />
-	<xsl:include href="D:/web/weatherhead/data/DigitalMeasures/xslt/DigitalMeasuresHelper.xslt" />
+	<xsl:include href="D:/web/common/xslt/DigitalMeasures/DigitalMeasuresHelper.xslt" />
     
     <xsl:param name="program" />
 	

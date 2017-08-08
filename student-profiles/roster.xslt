@@ -7,7 +7,7 @@
     exclude-result-prefixes="xs dmd fn"
     xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
 <xsl:output method="xhtml" />
-<xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt" />
+<xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt" />
   <xsl:param name="program" select="'Doctor of Management'" />
   <xsl:param name="year" select="'2017'" />
 

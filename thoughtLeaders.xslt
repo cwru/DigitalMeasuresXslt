@@ -6,7 +6,7 @@
     exclude-result-prefixes="dmd fn"
     xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
     
-<xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt" />
+<xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt" />
 
     <!-- Main Template -->
     <xsl:template match="Data">

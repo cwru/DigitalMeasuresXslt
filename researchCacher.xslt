@@ -11,7 +11,7 @@
     omit-xml-declaration="yes"
     encoding="utf-8"
     byte-order-mark="yes" />
-  <xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt" />
+  <xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt" />
 
   <xsl:param name="byDepartmentFile">file:///C:/testing/DigitalMeasures/cached/byDepartment.xml</xsl:param>
   <xsl:param name="byTopicFile">file:///C:/testing/DigitalMeasures/cached/byTopic.xml</xsl:param>

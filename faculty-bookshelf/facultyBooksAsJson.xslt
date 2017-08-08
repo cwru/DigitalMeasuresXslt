@@ -4,7 +4,7 @@
     exclude-result-prefixes="fn"    
     xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
 <xsl:output method="text" />
-<xsl:include href="D:/web/weatherhead/data/DigitalMeasures/xslt/DigitalMeasuresHelper.xslt" />
+<xsl:include href="D:/web/common/xslt/DigitalMeasures/DigitalMeasuresHelper.xslt" />
 
 <!-- create a key to select all unique titles -->
 <xsl:key name="booksByTitle" match="INTELLCONT[STATUS = 'Published' and starts-with(CONTYPE,'Book') and not(contains(CONTYPE,'Chapter')) and PUBLICAVAIL = 'Yes' and (WEBSITE = 'Yes' or PROFILE = 'Yes') and fn:isCurrentFaculty(..)]" use="TITLE" />

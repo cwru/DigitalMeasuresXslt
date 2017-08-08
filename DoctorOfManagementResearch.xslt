@@ -10,7 +10,7 @@
   exclude-result-prefixes="fn xf"
   xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
-  <xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt" />
+  <xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt" />
   
   <xsl:variable name="dm">Doctor of Management</xsl:variable>
   <xsl:variable name="phd">PhD Management - Designing Sustainable Systems</xsl:variable>

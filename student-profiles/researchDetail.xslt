@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet exclude-result-prefixes="dmd fn" version="2.0" xmlns:dmd="http://www.digitalmeasures.com/schema/data-metadata" xmlns:fn="http://weatherhead.case.edu/xslt" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://www.digitalmeasures.com/schema/data">
   <xsl:output method="xhtml"/>
-  <xsl:include href="D:\web\weatherhead\data\DigitalMeasures\xslt\DigitalMeasuresHelper.xslt"/>
+  <xsl:include href="D:\web\common\xslt\DigitalMeasures\DigitalMeasuresHelper.xslt"/>
   <!-- Input Parameters -->
   <xsl:param name="id" select="''"/>
   <xsl:key match="Record" name="studentList" use="@userId"/>
