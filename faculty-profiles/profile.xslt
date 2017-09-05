@@ -12,23 +12,20 @@
 <xsl:template match="Record">
     <Data>
     	<MastHead>
-            <div class="row masthead-profile-name">
-                <div class="col-xs-12">
-                    <h1>Faculty &#8211; <span itemprop="name"><span itemprop="givenName"><xsl:value-of select="fn:getPreferredFirstName(.)" /></span><xsl:text> </xsl:text><span itemprop="familyName"><xsl:value-of select="PCI/LNAME" /></span></span></h1>
-                </div>
-            </div>
             <div class="row masthead-profile-details">
-                <div class="col-sm-2">
-                    <!-- Photo -->	
-                    <img src="/images/people/{@username}.jpg" class="img-responsive" style="border:0;" onerror="this.style.visibility='hidden';" itemprop="image">
+                <div class="col-sm-3">
+                    <!-- Photo --> 
+                    <img src="/images/people/{@username}.jpg" class="img-responsive img-circle" style="border:0;margin-top:1em;" onerror="this.style.visibility='hidden';" itemprop="image">
                         <xsl:attribute name="alt">
-                            <xsl:value-of select="fn:getPreferredFirstName(.)" /><xsl:text> </xsl:text><xsl:value-of select="PCI/LNAME" /><xsl:text> - </xsl:text><xsl:value-of select="ADMIN/RANK[fn:isCurrent(../YEAR_START, ../YEAR_END)]" /> <xsl:if test="ADMIN/RANK != 'Professor for the Practice of'">,</xsl:if><xsl:text> </xsl:text><xsl:value-of select="ADMIN/ADMIN_DEP[fn:isCurrent(../YEAR_START, ../YEAR_END)]/DEP" />
+                            <xsl:value-of select="fn:getPreferredFirstName(.)" />&#160;<xsl:value-of select="PCI/LNAME" /><xsl:text> - </xsl:text><xsl:value-of select="ADMIN/RANK[fn:isCurrent(../YEAR_START, ../YEAR_END)]" /> <xsl:if test="ADMIN/RANK != 'Professor for the Practice of'">,</xsl:if>&#160;<xsl:value-of select="ADMIN/ADMIN_DEP[fn:isCurrent(../YEAR_START, ../YEAR_END)]/DEP" />
                         </xsl:attribute>
                     </img>
                 </div>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <!-- Titles -->
-                    
+                    <div class="masthead-profile-name">
+                        <h1>Faculty &#8211; <span itemprop="name"><span itemprop="givenName"><xsl:value-of select="fn:getPreferredFirstName(.)" /></span>&#160;<span itemprop="familyName"><xsl:value-of select="PCI/LNAME" /></span></span></h1>
+                    </div>
                     <xsl:for-each select="ENDOWED_CHAIR[fn:isCurrent(START_START, END_START)]">
                         <span itemprop="jobTitle"><xsl:value-of select="ROLE" /></span><br />
                     </xsl:for-each>
@@ -53,6 +50,12 @@
                         <span itemprop="jobTitle"><xsl:value-of select="../RANK" /><xsl:choose><xsl:when test="../DISCIPLINE != ''"> of <xsl:value-of select="../DISCIPLINE" />;</xsl:when><xsl:when test="../RANK != 'Professor for the Practice of'">,</xsl:when><xsl:otherwise></xsl:otherwise></xsl:choose>&#160;<xsl:value-of select="DEP" /></span><br />
                     </xsl:for-each>
             
+                    <xsl:for-each select="ADMIN/ADMIN_DEP_SECONDARY[
+                        fn:isWithinCurrentAcademicYear(..)
+                    ]">
+                        <span itemprop="jobTitle"><xsl:value-of select="../RANK" /><xsl:choose><xsl:when test="../DISCIPLINE != ''"> of <xsl:value-of select="../DISCIPLINE" />;</xsl:when><xsl:when test="../RANK != 'Professor for the Practice of'">,</xsl:when><xsl:otherwise></xsl:otherwise></xsl:choose>&#160;<xsl:value-of select="DEP" /></span><br />
+                    </xsl:for-each>
+
                     <xsl:for-each select="PASTHIST[
                         fn:isCurrent(START_START, END_START) and
                         PROFILE = 'Yes'
@@ -176,7 +179,7 @@
                     <xsl:sort select="DTY_PUB" order="descending" />			
                     <li style="word-wrap: break-word; margin-bottom: 15px;">
                         <xsl:for-each select="INTELLCONT_AUTH">		
-                            <xsl:value-of select="LNAME" /><xsl:text>, </xsl:text><xsl:value-of select="substring(FNAME,1,1)" /><xsl:text>.</xsl:text><xsl:if test="MNAME != ''"><xsl:text> </xsl:text><xsl:value-of select="substring(MNAME,1,1)" /><xsl:text>.</xsl:text></xsl:if><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>
+                            <xsl:value-of select="LNAME" /><xsl:text>, </xsl:text><xsl:value-of select="substring(FNAME,1,1)" /><xsl:text>.</xsl:text><xsl:if test="MNAME != ''">&#160;<xsl:value-of select="substring(MNAME,1,1)" /><xsl:text>.</xsl:text></xsl:if><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>
                         </xsl:for-each>
                         <xsl:if test="DTY_PUB != ''">
                             (<xsl:value-of select="DTY_PUB" />).
@@ -192,7 +195,7 @@
                         <xsl:if test="ABSTRACT = ''">
                             <em xml:space="preserve"><xsl:value-of select="TITLE" /></em>
                         </xsl:if>
-                        <xsl:text> </xsl:text>
+                        &#160;
                         <xsl:if test="ISSUE != '' or VOLUME != '' or PAGENUM != ''">
                             <xsl:if test="CONTYPE = 'Journal Article, Academic Journal' or CONTYPE = 'Journal Article, Professional Journal'">
                                 (<xsl:if test="VOLUME != ''">vol. <xsl:value-of select="VOLUME" />, </xsl:if>
@@ -226,10 +229,10 @@
                     <xsl:sort select="DTY_DATE" order="descending" />
                     <li style="margin-bottom: 15px;">
                         <xsl:for-each select="PRESENT_AUTH">	
-                            <xsl:value-of select="LNAME" /><xsl:text>, </xsl:text><xsl:value-of select="substring(FNAME,1,1)" /><xsl:text>.</xsl:text><xsl:if test="MNAME != ''"><xsl:text> </xsl:text><xsl:value-of select="substring(MNAME,1,1)" /><xsl:text>.</xsl:text></xsl:if><xsl:if test="ROLE != ''"> (<xsl:value-of select="ROLE"/>)</xsl:if><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>	
+                            <xsl:value-of select="LNAME" /><xsl:text>, </xsl:text><xsl:value-of select="substring(FNAME,1,1)" /><xsl:text>.</xsl:text><xsl:if test="MNAME != ''">&#160;<xsl:value-of select="substring(MNAME,1,1)" /><xsl:text>.</xsl:text></xsl:if><xsl:if test="ROLE != ''"> (<xsl:value-of select="ROLE"/>)</xsl:if><xsl:if test="position() != last()"><xsl:text>, </xsl:text></xsl:if>	
                         </xsl:for-each>
                         <xsl:if test="NAME != ''">
-                            <xsl:text> </xsl:text><xsl:value-of select="NAME" />,
+                            &#160;<xsl:value-of select="NAME" />,
                         </xsl:if>
                         <xsl:if test="TITLE != ''">
                             "<xsl:value-of select="TITLE" />",
